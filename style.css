@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --one-color : #707070;
+    --shadow:#292929;
+    --recover : rgb(41, 167, 70);
+    --active : rgb(95, 171, 255);
+    --confirm:rgb(255, 11, 61);
+}
+body{
+    font-family: 'Lato', sans-serif;
+    /* max-width: 980px; */
+    padding: 0 5rem;
+}
+.head{
+    font-weight: 700;
+    color: var(--one-color);
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 1.5rem;
+}
+span{
+    border-bottom: 1px solid rgb(168, 158, 158);
+}
+.india h1{
+    font-weight: 400;
+    color: var(--one-color);
+    text-align: left;
+    padding: 2rem;
+    font-size: 1.3rem;
+}
+.boxes{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* max-width: 980px; */
+}
+
+.box{
+    width: 158px;
+    padding: .8rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid rgba(112, 112, 112 , .20);
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgba(41, 41, 41,.16);
+}
+.box h2{
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--one-color);
+    padding: .5rem;
+}
+.box p{
+    color: var(--one-color);
+    font-size: .8rem;
+
+}
+.footer{
+    margin: 2rem 0;
+    color: var(--one-color);
+    font-weight: 300;
+    text-align: center;
+}
+.btn{
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    background: var(--one-color);
+    color: white;
+    padding: 8px 12px;
+    outline: none;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 3px 4px var(--shadow);
+}
+p{
+    letter-spacing: .7px;
+}
+.inline{
+    display: flex;
+}
+.today{
+    border: none;
+    font-size: .65rem;
+    margin-left: 5px;
+    font-weight: 700;
+    letter-spacing: .8px;
+}
+.confirm{
+    color: var(--confirm);
+}
+.active{
+    color: var(--active);
+}
+.recover {
+    color: var(--recover);
+}
+.death {
+    color :#292929;
+}
+@media (max-width:424px) {
+    body{
+        padding: 0 1rem ;
+    }
+    .india h1{
+        padding: 0.9rem;
+        margin: 1rem 0;
+    }
+}
