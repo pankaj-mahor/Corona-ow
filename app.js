@@ -27,7 +27,7 @@ async function gzbCityData() {
 //GET data
 //World
 worldData().then(data =>{
-    console.log(data);
+    // console.log(data);
     updateWorldUI(data);
 }).catch(err=>{
     console.log(err);
@@ -60,10 +60,10 @@ function updateIndiaUI(dataIndia) {
     const active = dataIndia.active;
 
     //UI total
-    confirmIN.textContent = total;
-    activeIN.textContent = active;
-    recoverIN.textContent = recoverd;
-    deathIN.textContent = death;
+    confirmIN.textContent = numberWithCommas(total);
+    activeIN.textContent = numberWithCommas(active);
+    recoverIN.textContent = numberWithCommas(recoverd);
+    deathIN.textContent = numberWithCommas(death);
 
     //today data
     const totalToday = dataIndia.deltaconfirmed;
@@ -72,9 +72,9 @@ function updateIndiaUI(dataIndia) {
     // const activeToday = totalToday - (recoverdToday + deathToday);
 
     // //ui update today data
-    confirmINt.textContent = ` +${totalToday}`;
-    recoverINt.textContent = ` +${recoverdToday}`;
-    deathINt.textContent = ` +${deathToday}`;
+    confirmINt.textContent = ` +${numberWithCommas(totalToday)}`;
+    recoverINt.textContent = ` +${numberWithCommas(recoverdToday)}`;
+    deathINt.textContent = ` +${numberWithCommas(deathToday)}`;
     // activeINt.textContent = ` +${activeToday}`;
 }
 
@@ -87,25 +87,30 @@ function updateStateUI(dataUP){
     const active = total - (recoverd + death);
 
     //total ui update
-    confirmUP.textContent = total;
-    activeUP.textContent = active;
-    recoverUP.textContent = recoverd;
-    deathUP.textContent = death;
+    confirmUP.textContent = numberWithCommas(total);
+    activeUP.textContent = numberWithCommas(active);
+    recoverUP.textContent = numberWithCommas(recoverd);
+    deathUP.textContent = numberWithCommas(death);
 
     //today data
     const totalToday = dataUP.delta.confirmed;
     const recoverdToday = dataUP.delta.recovered;
     const deathToday = dataUP.delta.deceased;
     // const activeToday = totalToday - (recoverdToday + deathToday);
-
-    //ui update today data
-    confirmTUP.textContent = ` +${totalToday}`;
-    recoverTUP.textContent = ` +${recoverdToday}`;
-    deathTUP.textContent = ` +${deathToday}`;
-    // activeTUP.textContent = ` +${activeToday}`;
-
+    if (typeof totalToday === 'undefined' &&
+      typeof recoverdToday === 'undefined' && 
+      typeof deathToday === 'undefined'){
+      //ui update today data
+      confirmTUP.textContent = `...`;
+      recoverTUP.textContent = `...`;
+      deathTUP.textContent = `...`;
+    } else {
+      confirmTUP.textContent = ` +${numberWithCommas(totalToday)}`;
+      recoverTUP.textContent = ` +${numberWithCommas(recoverdToday)}`;
+      deathTUP.textContent = ` +${numberWithCommas(deathToday)}`;
+    }
 }
-// //UI Ghaziabad
+//UI Ghaziabad
 function updateCityUI(dataCity) {
     //total data
     const total = dataCity.total.confirmed;
@@ -114,10 +119,10 @@ function updateCityUI(dataCity) {
     const active = total - (recoverd + death);
 
     //ui update total data
-    confirmGZB.textContent = total;
-    activeGZB.textContent = active;
-    recoverGZB.textContent = recoverd;
-    deathGZB.textContent = death;
+    confirmGZB.textContent = numberWithCommas(total);
+    activeGZB.textContent = numberWithCommas(active);
+    recoverGZB.textContent = numberWithCommas(recoverd);
+    deathGZB.textContent = numberWithCommas(death);
 
     //today data
     const totalToday = dataCity.delta.confirmed;
@@ -125,14 +130,21 @@ function updateCityUI(dataCity) {
     const deathToday = dataCity.delta.deceased;
     // const activeToday = totalToday - (recoverdToday + deathToday);
 
-    //ui update today data
-    confirmtGZB.textContent =  ` +${totalToday}`;
-    recovertGZB.textContent = ` +${recoverdToday}`;
-    deathtGZB.textContent = ` +${deathToday}`;
-    // activetGZB.textContent = ` +${activeToday}`;
-
+    if (typeof totalToday === 'undefined' &&
+        typeof recoverdToday === 'undefined' &&
+        typeof deathToday === 'undefined') {
+        //ui update today data
+        confirmtGZB.textContent = `...`;
+        recovertGZB.textContent = `...`;
+        deathtGZB.textContent = `...`;
+    } else {
+        //ui update today data
+        confirmtGZB.textContent = ` +${numberWithCommas(totalToday)}`;
+        recovertGZB.textContent = ` +${numberWithCommas(recoverdToday)}`;
+        deathtGZB.textContent = ` +${numberWithCommas(deathToday)}`;
+    }
 }
-
+//UPdate World UI
 function updateWorldUI(dataWorld) {
     //total data
     const total = dataWorld.Global.TotalConfirmed;
@@ -140,23 +152,31 @@ function updateWorldUI(dataWorld) {
     const death = dataWorld.Global.TotalDeaths;
     const active = total - (recoverd + death);
 
-
     //UI total
-    confirmW.textContent = total;
-    activeW.textContent = active;
-    recoverW.textContent = recoverd;
-    deathW.textContent = death;
+    confirmW.textContent = numberWithCommas(total);
+    activeW.textContent = numberWithCommas(active);
+    recoverW.textContent = numberWithCommas(recoverd);
+    deathW.textContent = numberWithCommas(death);
 
     //today data
     const totalToday = dataWorld.Global.NewConfirmed;
     const recoverdToday = dataWorld.Global.NewRecovered;
     const deathToday = dataWorld.Global.NewDeaths;
     // const activeToday = totalToday - (recoverdToday + deathToday);
-
-    // //ui update today data
-    confirmWt.textContent = ` +${totalToday}`;
-    recoverWt.textContent = ` +${recoverdToday}`;
-    deathWt.textContent = ` +${deathToday}`;
-    // activeINt.textContent = ` +${activeToday}`;
+    if (typeof totalToday === 'undefined' &&
+        typeof recoverdToday === 'undefined' &&
+        typeof deathToday === 'undefined') {
+        //ui update today data
+        confirmWt.textContent = `...`;
+        recoverWt.textContent = `...`;
+        deathWt.textContent = `...`;
+    } else {
+        confirmWt.textContent = ` +${numberWithCommas(totalToday)}`;
+        recoverWt.textContent = ` +${numberWithCommas(recoverdToday)}`;
+        deathWt.textContent = ` +${numberWithCommas(deathToday)}`;
+    }
 }
-
+//Function to add commama btwn numbers
+function numberWithCommas(number){
+    return parseInt(number).toLocaleString('en-IN');
+}
