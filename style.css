@@ -25,6 +25,42 @@ body{
 span{
     border-bottom: 1px solid rgb(168, 158, 158);
 }
+p {
+    letter-spacing: .7px;
+}
+
+.inline {
+    display: flex;
+}
+
+.today {
+    border: none;
+    font-size: .65rem;
+    margin-left: 5px;
+    font-weight: 700;
+    letter-spacing: .8px;
+}
+
+.confirm {
+    color: var(--confirm);
+}
+
+.active {
+    color: var(--active);
+}
+
+.recover {
+    color: var(--recover);
+}
+
+.death {
+    color: #292929;
+}
+
+hr {
+    color: var(--one-color);
+    margin-top: 2rem;
+}
 .india h1{
     font-weight: 400;
     color: var(--one-color);
@@ -68,6 +104,9 @@ span{
     font-weight: 300;
     text-align: center;
 }
+.none{
+    display: none;
+}
 .btn{
     position: fixed;
     bottom: 5%;
@@ -81,31 +120,31 @@ span{
     cursor: pointer;
     box-shadow: 3px 3px 4px var(--shadow);
 }
-p{
-    letter-spacing: .7px;
-}
-.inline{
+.newsSection {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    opacity: .8;
+    padding: 5px 25px;
+    margin-top: 2.5rem;
+    /* box-shadow: 2px 2px  1px rgb(168, 158, 158); */
 }
-.today{
-    border: none;
-    font-size: .65rem;
-    margin-left: 5px;
-    font-weight: 700;
-    letter-spacing: .8px;
+.newsSection h1{
+    padding: 0;
+    margin: 0;
+    color: black;
 }
-.confirm{
-    color: var(--confirm);
+#arr{
+    transform: rotate(180deg);
+    font-size: 1.9rem;
+    margin-top: -10px;
+    cursor: pointer;
+    color: var(--one-color);
+    /* transform: scale(1); */
+    /* transition: transform .3s linear; */
 }
-.active{
-    color: var(--active);
-}
-.recover {
-    color: var(--recover);
-}
-.death {
-    color :#292929;
-}
+
 @media (max-width:424px) {
     body{
         padding: 0 1rem ;
@@ -113,5 +152,12 @@ p{
     .india h1{
         padding: 0.9rem;
         margin: 1rem 0;
+    }
+    .news .info{
+        display: flex;
+        flex-direction: column;
+    }
+    .news .info p{
+        display: none;
     }
 }

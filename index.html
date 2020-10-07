@@ -6,6 +6,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./news.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <title>Corona Virus Tracker</title>
 </head>
 <body>
@@ -138,12 +141,25 @@
                 </div>
             </div>
         </div>
+        <!-- news to show -->
+        <div class="newsSection show india">
+            <h1><span>Covid News ?</span></h1>
+            <p id="arr">^</p>
+        </div>
+        <!-- actual news -->
+        <div class="news">
+            <div class="info">
+                <p>Here are some news from India and Worldwide related to Covid Situation and solution's. </p>
+                <span id="time">Timestamp</span>
+            </div>
 
+            <div class="actual-all-news">
+            </div>
+        </div>
         <div class="footer">
             <i>Made By Pankaj 🥰</i>
         </div>
     </div>
-
     <!-- <button class="btn">Dark ?</button> -->
     <script src="./vendor.js"></script>
     <script src="./app.js"></script>
